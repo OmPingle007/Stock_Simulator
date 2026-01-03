@@ -10,9 +10,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
-      // This is necessary because the @google/genai examples use process.env.API_KEY
-      // Vite normally requires VITE_ prefix and import.meta.env, so we polyfill it here.
-      'process.env.API_KEY': JSON.stringify(env.API_KEY)
+      // Polyfill process.env.API_KEY for the GenAI SDK.
+      // We check 'env.API_KEY' (from .env files) first, then 'process.env.API_KEY' (system/Vercel envs).
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || process.env.API_KEY)
     }
   };
 });
