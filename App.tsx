@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { fetchPortfolioData } from './services/geminiService';
 import { StockData, PortfolioSummary, LoadingState, PortfolioConfig } from './types';
 import PortfolioTable from './components/PortfolioTable';
@@ -141,6 +142,7 @@ const App: React.FC = () => {
         currentConfig={portfolioConfig}
         onSave={handleConfigSave}
       />
+      <Analytics />
     </div>
   );
 };
