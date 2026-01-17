@@ -143,6 +143,7 @@ const App: React.FC = () => {
         currentConfig={portfolioConfig}
         onSave={handleConfigSave}
       />
+      <Analytics />
     </div>
   );
 };
